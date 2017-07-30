@@ -18,5 +18,9 @@ class ChannelVC: UIViewController {
     }
 
 
+    @IBAction func onLoginButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: SEGUE_SHOW_LOGIN_VC, sender: self)
+    }
 
 }
