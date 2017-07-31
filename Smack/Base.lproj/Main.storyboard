@@ -202,7 +202,7 @@
                                     <action selector="onCancelButtonPressed:" destination="kZv-Ve-ggY" eventType="touchUpInside" id="fhG-NC-EQg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kf-vz-5NT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kf-vz-5NT" customClass="RoundedButton" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="62.5" y="288" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -213,6 +213,11 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cT9-I0-TP9">
                                 <rect key="frame" x="62.5" y="160" width="250" height="34"/>
@@ -319,7 +324,7 @@
                                     <action selector="onCancelButtonPressed:" destination="gNC-eb-MMh" eventType="touchUpInside" id="rXy-3H-ksY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7q-Ee-v8I">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7q-Ee-v8I" customClass="RoundedButton" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="62" y="597" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -330,6 +335,14 @@
                                 <state key="normal" title="Create">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onCreateButtonPressed:" destination="gNC-eb-MMh" eventType="touchUpInside" id="TrL-EG-fYD"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="gMK-RY-nta">
                                 <rect key="frame" x="62" y="162" width="250" height="34"/>
@@ -408,11 +421,17 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                                 <state key="normal" title="Choose avatar"/>
+                                <connections>
+                                    <action selector="onChooseAvatarButtonPressed:" destination="gNC-eb-MMh" eventType="touchUpInside" id="D4B-eA-SUa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8E-i0-Eeb">
                                 <rect key="frame" x="113" y="450" width="148" height="29"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                                 <state key="normal" title="Generate background color"/>
+                                <connections>
+                                    <action selector="onGenerateBackgroundColorButtonPressed:" destination="gNC-eb-MMh" eventType="touchUpInside" id="eur-E1-s4M"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -439,6 +458,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageViewAvatar" destination="Lan-x1-cBy" id="eBo-2u-xsc"/>
+                        <outlet property="textFieldEmail" destination="1Rc-cX-2T4" id="rl7-VY-HyD"/>
+                        <outlet property="textFieldIUsername" destination="ypL-ja-Ymb" id="fgP-Y5-EBZ"/>
+                        <outlet property="textFieldPassword" destination="jwe-kj-AZn" id="ftd-QH-jbT"/>
                         <segue destination="4h3-hu-9U9" kind="unwind" identifier="unwindToChannelVC" unwindAction="prepareForUnwindWithSegue:" id="bPb-75-jhB"/>
                     </connections>
                 </viewController>
