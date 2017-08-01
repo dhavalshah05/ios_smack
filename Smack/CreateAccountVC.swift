@@ -17,13 +17,15 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var imageViewAvatar: UIImageView!
     
     var avatarName = "profileDefault"
-    var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    var bgColor: UIColor?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        UserDataServices.instance.setAvatarColor(red: "0.5", green: "0.5", blue: "0.5", alpha: "1")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,6 +33,10 @@ class CreateAccountVC: UIViewController {
         if UserDataServices.instance.avatarName != "" {
             imageViewAvatar.image = UIImage(named: UserDataServices.instance.avatarName)
             self.avatarName = UserDataServices.instance.avatarName
+            
+            if avatarName.contains("light") && bgColor == nil{
+                imageViewAvatar.backgroundColor = UIColor.gray
+            }
         }
         
     }
@@ -45,6 +51,17 @@ class CreateAccountVC: UIViewController {
     
     @IBAction func onGenerateBackgroundColorButtonPressed(_ sender: Any) {
         
+        let red = CGFloat(arc4random_uniform(255)) / 255
+        let green = CGFloat(arc4random_uniform(255)) / 255
+        let blue = CGFloat(arc4random_uniform(255)) / 255
+        
+        bgColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
+        
+        UIView.animate(withDuration: 0.2) {
+            self.imageViewAvatar.backgroundColor = self.bgColor
+        }
+        
+        UserDataServices.instance.setAvatarColor(red: String(describing: red), green: String(describing: green), blue: String(describing: blue), alpha: "1")
     }
     
 
@@ -82,12 +99,11 @@ class CreateAccountVC: UIViewController {
                 guard let name = self.textFieldIUsername.text, self.textFieldIUsername.text != "" else { return }
                 
                 // create user
-                self.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor)
+                self.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: UserDataServices.instance.avatarColor)
                 
                 
             }else {
                 print("Login failed")
-
             }
             
         }

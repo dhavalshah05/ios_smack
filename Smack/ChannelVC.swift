@@ -15,6 +15,7 @@ class ChannelVC: UIViewController {
 
         // set rear view visible width
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+        
     }
 
 
@@ -27,4 +28,5 @@ class ChannelVC: UIViewController {
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
         
     }
+    
 }
