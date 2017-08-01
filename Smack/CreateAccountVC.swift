@@ -25,13 +25,22 @@ class CreateAccountVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDataServices.instance.avatarName != "" {
+            imageViewAvatar.image = UIImage(named: UserDataServices.instance.avatarName)
+            self.avatarName = UserDataServices.instance.avatarName
+        }
+        
+    }
 
     @IBAction func onCancelButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: UNWIND_TO_CHANNEL_VC, sender: nil)
     }
     
     @IBAction func onChooseAvatarButtonPressed(_ sender: Any) {
-        
+        performSegue(withIdentifier: SEGUE_SHOW_CHOOSE_AVATAR_VC, sender: nil)
     }
     
     @IBAction func onGenerateBackgroundColorButtonPressed(_ sender: Any) {

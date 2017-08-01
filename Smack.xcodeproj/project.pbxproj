@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230CCD4F1F3096E200D11F3D /* ChooseAvatarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CCD4E1F3096E200D11F3D /* ChooseAvatarVC.swift */; };
+		230CCD511F30973D00D11F3D /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230CCD501F30973D00D11F3D /* AvatarCell.swift */; };
 		23749F6A1F2F52D500B7CC30 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23749F691F2F52D500B7CC30 /* CreateAccountVC.swift */; };
 		23749F6D1F2F82EB00B7CC30 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23749F6C1F2F82EB00B7CC30 /* AuthServices.swift */; };
 		23749F6F1F2F953F00B7CC30 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23749F6E1F2F953F00B7CC30 /* RoundedButton.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		22CB8AF0B16741959F897F0F /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
+		230CCD4E1F3096E200D11F3D /* ChooseAvatarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseAvatarVC.swift; sourceTree = "<group>"; };
+		230CCD501F30973D00D11F3D /* AvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		23749F691F2F52D500B7CC30 /* CreateAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		23749F6C1F2F82EB00B7CC30 /* AuthServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		23749F6E1F2F953F00B7CC30 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			children = (
 				239C3FE81F2E3FC800C9947A /* GradientView.swift */,
 				23749F6E1F2F953F00B7CC30 /* RoundedButton.swift */,
+				230CCD501F30973D00D11F3D /* AvatarCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 				239C3FE61F2E293A00C9947A /* ChannelVC.swift */,
 				239C3FEA1F2E51FA00C9947A /* LoginVC.swift */,
 				23749F691F2F52D500B7CC30 /* CreateAccountVC.swift */,
+				230CCD4E1F3096E200D11F3D /* ChooseAvatarVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -300,6 +306,8 @@
 				239C3FE91F2E3FC800C9947A /* GradientView.swift in Sources */,
 				23749F711F2FA98800B7CC30 /* UserDataServices.swift in Sources */,
 				239C3FEE1F2E52A600C9947A /* Constants.swift in Sources */,
+				230CCD4F1F3096E200D11F3D /* ChooseAvatarVC.swift in Sources */,
+				230CCD511F30973D00D11F3D /* AvatarCell.swift in Sources */,
 				23749F6D1F2F82EB00B7CC30 /* AuthServices.swift in Sources */,
 				239C3FCB1F2E1E5C00C9947A /* AppDelegate.swift in Sources */,
 				239C3FE01F2E261900C9947A /* SWRevealViewController.m in Sources */,
