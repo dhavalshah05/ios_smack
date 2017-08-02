@@ -41,14 +41,6 @@ class CreateAccountVC: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if UserDataServices.instance.avatarName != "" {
-            imageViewAvatar.image = UIImage(named: UserDataServices.instance.avatarName)
-            self.avatarName = UserDataServices.instance.avatarName
-        }
-        
-    }
 
     @IBAction func onCancelButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: UNWIND_TO_CHANNEL_VC, sender: nil)
