@@ -82,4 +82,6 @@ class ChooseAvatarVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         dismiss(animated: true, completion: nil)
         
     }
+    
+    
 }

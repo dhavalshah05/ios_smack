@@ -15,6 +15,8 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var imageViewAvatar: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var buttonCreate: RoundedButton!
     
     var avatarName = "profileDefault"
     var bgColor: UIColor?
@@ -24,6 +26,11 @@ class CreateAccountVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setUpView()
+        hideActivityIndicator()
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CreateAccountVC.onTap)))
         
         UserDataServices.instance.setAvatarColor(red: "0.5", green: "0.5", blue: "0.5", alpha: "1")
     }
@@ -71,6 +78,8 @@ class CreateAccountVC: UIViewController {
         guard let email = textFieldEmail.text, textFieldEmail.text != "" else { return }
         guard let password = textFieldPassword.text, textFieldPassword.text != "" else { return }
         
+        showActivityIndicator()
+        
         registerUser(email: email, password: password)
         
     }
@@ -117,16 +126,52 @@ class CreateAccountVC: UIViewController {
             
             if success {
                 
+                self.hideActivityIndicator()
+                self.performSegue(withIdentifier: UNWIND_TO_CHANNEL_VC, sender: nil)
+                
+                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil, userInfo: nil)
+                
                 print("User Id -> \(UserDataServices.instance.id)")
                 
             }else {
                 print("CreateUser failed")
+                
+                self.hideActivityIndicator()
                 
             }
 
             
         }
         
+    }
+    
+    func setUpView(){
+        
+        textFieldIUsername.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSForegroundColorAttributeName: smackPurplePlaceHolder])
+
+    
+        textFieldEmail.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSForegroundColorAttributeName: smackPurplePlaceHolder])
+
+        textFieldPassword.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSForegroundColorAttributeName: smackPurplePlaceHolder])
+
+    }
+    
+    func showActivityIndicator(){
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
+        buttonCreate.isHidden = true
+    }
+    
+    func hideActivityIndicator(){
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+        
+        buttonCreate.isHidden = false
+    }
+    
+    @objc func onTap(){
+        view.endEditing(true)
     }
     
 }

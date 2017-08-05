@@ -19,6 +19,19 @@ class ChatVC: UIViewController {
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        /*
+         Check if the user is logged in or not.
+         If logged in, get the user data and send notification 
+         */
+        if AuthServices.getInstance().isLoggedIn {
+            
+            AuthServices.getInstance().findUserByEmail(completed: { (result) in
+                
+                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+                
+            })
+        }
     }
 
    
